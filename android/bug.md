@@ -19,6 +19,7 @@ android:configChanges = "ketboardHidden|orientation|screenSize"表示屏幕横�
 在Activity中添加DialogFragment 使DialogFragment消失的方法有两种getDialog.dismiss()和dismiss()。<br>
 存在这样的一种应用场景：DialogFragment跳转到Activity，在DialogFragment中startActivity然后getDialog.dismiss。在startActivity启动的过程中因异常挂掉，或者是触发了返回键，跳转的Activity销毁，再次点击跳转会出现如下的errorLog提示。<br>
 原因是Dialog消失，但是Activity并没有OnResume。Activity处在onSaveInstanceState生命周期，DialogFragment再次创建就会出现bug。使用dismiss就不会出现这样的bug.<br>
+```java
 7091): java.lang.IllegalStateException: Can not perform this action after onSaveInstanceState
 E/AndroidRuntime( 7091): at android.support.v4.app.FragmentManagerImpl.checkStateLoss(FragmentManager.java:1493)
 E/AndroidRuntime( 7091): at android.support.v4.app.FragmentManagerImpl.enqueueAction(FragmentManager.java:1511)
@@ -41,6 +42,7 @@ E/AndroidRuntime( 7091): at java.lang.reflect.Method.invoke(Method.java:372)
 E/AndroidRuntime( 7091): at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1400)
 E/AndroidRuntime( 7091): at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1195)
 D/MomosoApiService( 7091): <--- HTTP 200 https://api.momoso.com/ios/v1/page_view/update_flash_feeds?topic_id=57a82b168106e5600247f5c9 (2818ms)
+```
 8. android webview 加载h5界面部分图片没有加载出来<br>
 webview 使用的是chrome 内核。
 查看log显示：
