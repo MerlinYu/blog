@@ -44,8 +44,7 @@ E/AndroidRuntime( 7091): at com.android.internal.os.ZygoteInit.main(ZygoteInit.j
 D/MomosoApiService( 7091): <--- HTTP 200 https://api.momoso.com/ios/v1/page_view/update_flash_feeds?topic_id=57a82b168106e5600247f5c9 (2818ms)
 ```
 8. android webview 加载h5界面部分图片没有加载出来<br>
-webview 使用的是chrome 内核。
-查看log显示：
+webview 使用的是chrome 内核。查看log显示：
 "Mixed Content: The page at 'https://m.momoso.com/groupbuy/today?share=true' was loaded over HTTPS, but requested an insecure image<br> 'http://7sbq7i.com1.z0.glb.clouddn.com/oss/5e2dde6eea5abd8eb084ac35461fe15b92a3a790.png'. This request has been blocked; the content must<br> be served over HTTPS.", source: https://m.momoso.com/groupbuy/today?share=true (0)<br>
 主要意思是https的请求中加载http的图片，出错，结果图片没有加载出来。
 这是android API21以后才会出现的一个问题。
