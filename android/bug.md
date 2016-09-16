@@ -56,5 +56,6 @@ webview 使用的是chrome 内核。
       settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
     }
 ```
+
 以后在调试bug的时候，注重一下打印，打印中会出现许多有用的信息，避免自己毫无头绪的找原因，可以很快定位。<br>
 
