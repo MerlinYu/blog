@@ -41,8 +41,8 @@ if (staticLayout != null) {
 代码简单，也不用多说什么，一看就会。<br>
 另外提一下如何自定义view生成圆角图片，关键代码如下：如果要自定义view在OnDraw使用。<br>
 同样可以用下边的代码生成圆形的图片。<br>
-// 圆角图片
 ```java
+// 圆角图片
 private Bitmap transformToRoundCircle(Bitmap bitmap,int radius) {
   Bitmap circleBitmap = Bitmap.createBitmap(bitmap.getWidth(),bitmap.getHeight(), Bitmap.Config.ARGB_8888);
   Canvas canvas = new Canvas(circleBitmap);
