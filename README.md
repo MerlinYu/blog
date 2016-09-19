@@ -15,7 +15,7 @@
 [Android 事件分发机制](https://github.com/MerlinYu/blog/blob/master/android/touch_event.md)<br>
 [Android 四大组件](https://github.com/MerlinYu/blog/blob/master/android/main_component.md)<br>
 [Drawable canvas](https://github.com/MerlinYu/blog/blob/master/android/drawable.md)<br>
-[Handler机制](https://github.com/MerlinYu/blog/blob/master/android/android_handler.md)<br>
+[Handler 机制](https://github.com/MerlinYu/blog/blob/master/android/android_handler.md)<br>
 [Android bug总结一](https://github.com/MerlinYu/blog/blob/master/android/bug.md)<br>
 [Android bug总结二](https://github.com/MerlinYu/blog/blob/master/android/bug_2.md)<br>
 [Android 面试知识](https://github.com/MerlinYu/blog/blob/master/android/interview.md)<br>
