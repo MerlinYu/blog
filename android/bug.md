@@ -4,24 +4,23 @@
 原因：RecyclerView Holder 复用，添加绑定view时如果有addview操作需要先removeallview。<br>
 2. activity 打开照相机之后，状态改变<br>
 原因：activity打开照相机activity被销毁，返回activity时重新Oncreate恢复activity.<br>
-解决办法：1. onSaveInstanceState时保存activy数据2. 在Mainfest.xml文件设置该activity的属性：<br>
+解决办法：1.onSaveInstanceState时保存activy数据;2.在Mainfest.xml文件设置该activity的属性：<br>
 android:configChanges = "ketboardHidden|orientation|screenSize"表示屏幕横竖屏，键盘切换时该activity的状态不会改变。<br>
 3. Picasso load本地图片不成功。<br>
-原因：Picasso在load图片时地址形式是URI的形式。从本地获得的图片地址如果是：storges/../...jpg必须转换。
+原因：Picasso在load图片时地址形式是URI的形式。从本地获得的图片地址如果是：storges/../...jpg必须转换。<br>
 解决办法：String str = Uri.formFile(new File(path)).toString。
 4. handler sendmessage 手机黑屏<br>
-原因：在OnCreate 中使用handler.sendmessage会导致手机黑屏
-5. android 软键盘弹出造成View空白
-![](https://github.com/MerlinYu/blog/raw/master/blog_file/android/ui/keyboard.png)
+原因：在OnCreate 中使用handler.sendmessage会导致手机黑屏<br>
+5. android 软键盘弹出造成View空白<br>
+![](https://github.com/MerlinYu/blog/raw/master/blog_file/android/ui/keyboard.png)<br>
 当我们打开Activity输入时如果有EditText控件时会自动弹出软键盘以便输入文字。<br>
 在工作中发现这样一种情况：B Activity含有EditText,在onResume中有网络请求，从A Activity跳转到B Activity中再返回A发现A Activity view弹出软键盘界面空白。<br>
 这种情况发生的原因我猜想是：当跳转到B Activity时要访问网络，耗时初始化，异步弹出软键盘，因为B activity view还没有初始化完成，这个软键盘会在A Activity上也显示，当B activity初始化完成，又会显示在B Activity，再次返回A activity时会造成view空白。<br>
-解决办法：B activity不主动弹出软键盘。
+解决办法：B activity不主动弹出软键盘。<br>
 ```java
 android:windowSoftInputMode="stateHidden|adjustPan"
 ``` 
-
-6. android webview 加载h5界面部分图片没有加载出来<br>
+6.android webview 加载h5界面部分图片没有加载出来<br>
 webview 使用的是chrome 内核。
 查看log显示：
 "Mixed Content: The page at 'https://m.momoso.com/groupbuy/today?share=true' was loaded over HTTPS, but requested an insecure image<br> 'http://7sbq7i.com1.z0.glb.clouddn.com/oss/5e2dde6eea5abd8eb084ac35461fe15b92a3a790.png'. This request has been blocked; the content must<br> be served over HTTPS.", source: https://m.momoso.com/groupbuy/today?share=true (0)<br>
@@ -34,7 +33,7 @@ webview 使用的是chrome 内核。
       settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
     }
 ```
-以后在调试bug的时候，注重一下打印，打印中会出现许多有用的信息，避免自己毫无头绪的找原因，可以很快定位。<br>
+以后在调试bug的时候，注重一下打印，打印中会出现许多有用的信息，避免自己毫无头绪的找原因，可以很快定位。
 7. Dialog消失异常<br>
 在Activity中添加DialogFragment 使DialogFragment消失的方法有两种getDialog.dismiss()和dismiss()。<br>
 存在这样的一种应用场景：DialogFragment跳转到Activity，在DialogFragment中startActivity然后getDialog.dismiss。在startActivity启动的过程中因异常挂掉，或者是触发了返回键，跳转的Activity销毁，再次点击跳转会出现如下的errorLog提示。<br>
