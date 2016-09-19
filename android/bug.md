@@ -15,6 +15,23 @@ android:configChanges = "ketboardHidden|orientation|screenSize"表示屏幕横�
 原因：String.formact()在转换时需要指定日期的形式，eg：String.formact(Local.getDefault,...)
 6. null异常<br>
 原因：在许多情况下类都需要进行null判断，重复的判断，有时会导致逻辑的冗余,可考虑将其写成一个函数eg：checkNotNull。
+7. android webview 加载h5界面部分图片没有加载出来<br>
+webview 使用的是chrome 内核。
+查看log显示：
+"Mixed Content: The page at 'https://m.momoso.com/groupbuy/today?share=true' was loaded over HTTPS, but requested an insecure image<br> 'http://7sbq7i.com1.z0.glb.clouddn.com/oss/5e2dde6eea5abd8eb084ac35461fe15b92a3a790.png'. This request has been blocked; the content must<br> be served over HTTPS.", source: https://m.momoso.com/groupbuy/today?share=true (0)<br>
+主要意思是https的请求中加载http的图片，出错，结果图片没有加载出来。
+这是android API21以后才会出现的一个问题。
+博客：http://stackoverflow.com/a/31513802/3962533 上有解决办法。
+```java
+    // Fix image doesn't load. See http://stackoverflow.com/a/31513802/3962533
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+    }
+```
+
+以后在调试bug的时候，注重一下打印，打印中会出现许多有用的信息，避免自己毫无头绪的找原因，可以很快定位。<br>
+
+
 7. Dialog消失异常<br>
 在Activity中添加DialogFragment 使DialogFragment消失的方法有两种getDialog.dismiss()和dismiss()。<br>
 存在这样的一种应用场景：DialogFragment跳转到Activity，在DialogFragment中startActivity然后getDialog.dismiss。在startActivity启动的过程中因异常挂掉，或者是触发了返回键，跳转的Activity销毁，再次点击跳转会出现如下的errorLog提示。<br>
@@ -43,20 +60,3 @@ E/AndroidRuntime( 7091): at com.android.internal.os.ZygoteInit$MethodAndArgsCall
 E/AndroidRuntime( 7091): at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1195)
 D/MomosoApiService( 7091): <--- HTTP 200 https://api.momoso.com/ios/v1/page_view/update_flash_feeds?topic_id=57a82b168106e5600247f5c9 (2818ms)
 ```
-
-8. android webview 加载h5界面部分图片没有加载出来<br>
-webview 使用的是chrome 内核。
-查看log显示：
-"Mixed Content: The page at 'https://m.momoso.com/groupbuy/today?share=true' was loaded over HTTPS, but requested an insecure image<br> 'http://7sbq7i.com1.z0.glb.clouddn.com/oss/5e2dde6eea5abd8eb084ac35461fe15b92a3a790.png'. This request has been blocked; the content must<br> be served over HTTPS.", source: https://m.momoso.com/groupbuy/today?share=true (0)<br>
-主要意思是https的请求中加载http的图片，出错，结果图片没有加载出来。
-这是android API21以后才会出现的一个问题。
-博客：http://stackoverflow.com/a/31513802/3962533 上有解决办法。
-```java
-    // Fix image doesn't load. See http://stackoverflow.com/a/31513802/3962533
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-      settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-    }
-```
-
-以后在调试bug的时候，注重一下打印，打印中会出现许多有用的信息，避免自己毫无头绪的找原因，可以很快定位。<br>
-
