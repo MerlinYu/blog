@@ -7,18 +7,18 @@
 #android
 [Android 签名](https://github.com/MerlinYu/blog/blob/master/android/sign.md)<br>
 [android 框架](https://github.com/MerlinYu/blog/blob/master/android/structure.md)<br>
-[leakCanary 内存泄漏检测](https://github.com/MerlinYu/blog/blob/master/android/LeaksCanary.md)<br>
-[android 第三方库](https://github.com/MerlinYu/blog/blob/master/android/library.md)<br>
-[Activity源码理解](https://github.com/MerlinYu/blog/blob/master/android/activity.md)<br>
-[view 源码理解](https://github.com/MerlinYu/blog/blob/master/android/view.md)<br>
-[TextView源码理解](https://github.com/MerlinYu/blog/blob/master/android/textview.md)<br>
-[android事件分发机制](https://github.com/MerlinYu/blog/blob/master/android/touch_event.md)<br>
-[android 四大组件](https://github.com/MerlinYu/blog/blob/master/android/main_component.md)<br>
-[drawable canvas](https://github.com/MerlinYu/blog/blob/master/android/drawable.md)<br>
-[handler机制](https://github.com/MerlinYu/blog/blob/master/android/android_handler.md)<br>
-[android bug总结一](https://github.com/MerlinYu/blog/blob/master/android/bug.md)<br>
-[android bug总结二](https://github.com/MerlinYu/blog/blob/master/android/bug_2.md)<br>
-[android 面试知识](https://github.com/MerlinYu/blog/blob/master/android/interview.md)<br>
+[LeakCanary 内存泄漏检测](https://github.com/MerlinYu/blog/blob/master/android/LeaksCanary.md)<br>
+[Android 第三方库](https://github.com/MerlinYu/blog/blob/master/android/library.md)<br>
+[Activity 源码理解](https://github.com/MerlinYu/blog/blob/master/android/activity.md)<br>
+[View 源码理解](https://github.com/MerlinYu/blog/blob/master/android/view.md)<br>
+[TextView 源码理解](https://github.com/MerlinYu/blog/blob/master/android/textview.md)<br>
+[Android 事件分发机制](https://github.com/MerlinYu/blog/blob/master/android/touch_event.md)<br>
+[Android 四大组件](https://github.com/MerlinYu/blog/blob/master/android/main_component.md)<br>
+[Drawable canvas](https://github.com/MerlinYu/blog/blob/master/android/drawable.md)<br>
+[Handler机制](https://github.com/MerlinYu/blog/blob/master/android/android_handler.md)<br>
+[Android bug总结一](https://github.com/MerlinYu/blog/blob/master/android/bug.md)<br>
+[Android bug总结二](https://github.com/MerlinYu/blog/blob/master/android/bug_2.md)<br>
+[Android 面试知识](https://github.com/MerlinYu/blog/blob/master/android/interview.md)<br>
 #gradle
 #ReactNative
  
