@@ -13,7 +13,7 @@
 [view 源码理解](https://github.com/MerlinYu/blog/blob/master/android/view.md)<br>
 [TextView源码理解](https://github.com/MerlinYu/blog/blob/master/android/textview.md)<br>
 [android事件分发机制](https://github.com/MerlinYu/blog/blob/master/android/touch_event.md)<br>
-[android 四大组件](https://github.com/MerlinYu/blog/blob/master/android/main_component.md)
+[android 四大组件](https://github.com/MerlinYu/blog/blob/master/android/main_component.md)<br>
 [drawable canvas](https://github.com/MerlinYu/blog/blob/master/android/drawable.md)<br>
 [handler机制](https://github.com/MerlinYu/blog/blob/master/android/android_handler.md)<br>
 [android bug总结一](https://github.com/MerlinYu/blog/blob/master/android/bug.md)<br>
