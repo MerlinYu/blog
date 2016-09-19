@@ -227,5 +227,5 @@ static final class ActivityClientRecord {
 }
 ```
 
-###完善
-window窗口管理
+###待完善
+Activity的源码算是看完了，但是感觉还有许多可以完善的地方，比如屏幕事件与Activity的通信,window窗口的管理...
