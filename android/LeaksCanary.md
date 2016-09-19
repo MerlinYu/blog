@@ -107,7 +107,7 @@ LeakCanary在watch中通过执行Executor去检测引用有没有被清除。其
 http://hongjiang.info/java-referencequeue/<br>
 http://vjson.com/wordpress/leakcanary源码分析第二讲－refwatcher详解.html<br>
 这两篇博客的内容是关于ReferenceQuene的知识其中有讲到引用回收的机制。<br>
-###install
+###android install
 在Application中执行LeakCanary.install(this);<br>
 ```java
 public static RefWatcher install(Application application,
