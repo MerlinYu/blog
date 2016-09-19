@@ -15,7 +15,7 @@ Step 5. 对于通过点击应用程序图标来启动Activity的情景来说，A
 而对于通过在Activity内部调用startActivity来启动新的Activity来说，这一步是不需要执行的，因为新的Activity就在原来的Activity所在的进程中进行启动；<br>
 Step 6. ActivityManagerServic调用ApplicationThread.scheduleLaunchActivity接口，通知相应的进程执行启动Activity的操作；<br>
 Step 7. ApplicationThread把这个启动Activity的操作转发给ActivityThread，ActivityThread通过ClassLoader导入相应的Activity类，然后把它启动起来。<br>
-
+花了一天时间去看了一下Activity的源码，Activity中两个重要的相关类ActivityThread,WindowManager,前者启动Activity后者进行窗口的管理和绘制。<br>
 ##ActivityThread
 每个App都会拥有一个各自的ActivityThread来管理app进程中的各种事务。<br>
 1. ActivityThread main<br>
@@ -55,6 +55,7 @@ public static void main(String[] args) {
 }
 ```
 在main函数中会进行Looper的初始化，attach绑定初始化。上层ActivityManagerService调用，启动app。<br>
+
 2. ApplicationThread<br>
 在ActivityThread中定义了ApplicationThread。ActivityThread ,ApplicationThread, Activity的对应关系是：1：1：n;当要启动Activity时
 ApplicationThread发送消息（start,stop,resume...）给Handler，在Handler中今次处理这些消息，最后会调用到相应的Activity.OnCrease,Activity.OnStart...<br>
@@ -226,6 +227,19 @@ static final class ActivityClientRecord {
     …
 }
 ```
-
+###其他
+1. 在Activity中可以通过getWindowManager获取window的实例，并通过addView方法添加view.
+2. onSaveInstanceState可以保存Activity的状态，一般当Activity非正常死掉时需要重写它，常见的两种情况是：相机启动返回之后Activity重启，系统kill Activity.在onSaveInstanceState中保存一些必要的状态，在onRestoreInstanceState时恢复状态。onSaveInstanceState的调用时机是在onPause和onStop之间。
+3. createPendResult是一种Activity与Activity,Service传递数据的一种方式。
+4. onNewIntent当Activity的启动模式为singleTop时，Activity再次启动时会调用它。在其中需要setIntent进行intent同步。
+5. Activity中提供了一些函数可以判断是谁启动的它，相关的函数有：<br>
+//get Launched activity
+getReferrer<br>
+//get calling activity package
+getCallingPackage<br>
+// get call activity
+getCallingActivity<br>
+6. 理解Activity生命周期对android编程有很大的帮助，在工作中出现的几个很奇怪的bug都与它有关。
+7. Activity的顶层view是DecorView，实质是一个FramLayout.
 ###待完善
 Activity的源码算是看完了，但是感觉还有许多可以完善的地方，比如屏幕事件与Activity的通信,window窗口的管理...
