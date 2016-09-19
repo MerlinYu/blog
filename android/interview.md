@@ -8,5 +8,6 @@ https://github.com/MerlinYu/blog/blob/master/android/main_component.md<br>
 ##http机制
 ##三级缓存
 ##java基础
+https://github.com/MerlinYu/blog/blob/master/java/java_interview.md<br>
 
 
