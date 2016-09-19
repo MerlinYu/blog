@@ -226,3 +226,6 @@ static final class ActivityClientRecord {
     …
 }
 ```
+
+###完善
+window窗口管理
