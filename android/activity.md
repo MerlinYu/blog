@@ -241,5 +241,7 @@ getCallingPackage<br>
 getCallingActivity<br>
 6. 理解Activity生命周期对android编程有很大的帮助，在工作中出现的几个很奇怪的bug都与它有关。
 7. Activity的顶层view是DecorView，实质是一个FramLayout.
+
+<br>
 ###待完善
 Activity的源码算是看完了，但是感觉还有许多可以完善的地方，比如屏幕事件与Activity的通信,window窗口的管理...
