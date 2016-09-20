@@ -11,5 +11,11 @@ Moudle-view-Presenter<br>
 
 ## MVVM
 Model-View-ViewModel<br>
+
+## tips
+1. blank Activity空白的Activity可以利用它实现一些很巧妙的功能，比如网络请求，后台登陆...
+2. app中需要对应用的异常进行监听，当有异常发生时将信息传回给服务器，方便修改bug。android中提供了一个接口类-UncaughtExceptionHandler，实现该接口功能，就可以自定义处理运行异常。
+3. app当中所有的Activity应该继承一个重写的BaseAtivity这样可以在BaseActivity对Activity的周期进行管理监测，跟踪状态。eg:在BaseActivity onCreate中添加log打印this.getSimpleName，就可以在控制台监测Activity的跳转流程。
+4. android ANR界面优化http://www.jianshu.com/p/1fb065c806e6
 ## mark
 待完善
