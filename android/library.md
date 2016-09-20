@@ -35,6 +35,8 @@ app:border_width="2dp"app:border_color="@color/dark" />
 ###5. Retrofit
 
 ##插件
+###1. stetho http://facebook.github.io/stetho/
+###2. AndroidDevMetrics:监测view绘制时间，丢帧数。
 
 
 
