@@ -1,11 +1,11 @@
 #Android 缩略图
 android 手机 上可以看到的图片都会有一张缩略图，在加载相册显示图片时，可以先显示这张缩略图。<br>
 提取图片和视频的缩略图可以直接访问:<br>
-1 android.provider.MediaStore.Images.Thumbnails<br>
-2 android.provider.MediaStore.Video.Thumbnails<br>
+1. android.provider.MediaStore.Images.Thumbnails<br>
+2. android.provider.MediaStore.Video.Thumbnails<br>
 原图存放在：<br>
-MediaStore.Images<br>
-MediaStore.Video<br>
+1. MediaStore.Images<br>
+2. MediaStore.Video<br>
 我们关心的一个最关键的问题是缩略图和原图是怎么关联的。<br>
 表Thumbnails的image_id 和images 的_id 是一样的通过这两个值就可以找出两表的映射关系，进而找出图片的位置。<br>
 下面是通过原图的地址找出缩略图的地址：<br>
