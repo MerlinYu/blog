@@ -12,3 +12,23 @@ if(bitmapObject.isRecycled()==false) //如果没有回收<br>
 8. 图像占用内存算法: memory = width * height * config;  eg: config = ARGB_888(4)
 9. LinerLayout devider的运用。http://gold.xitu.io/entry/55272f6ae4b0da2c5deb7f26
 10. ListView逐行刷新是通过ViewHolder实现的在ListView的Adapter getView当中new viewholder,view.setTag(viewholder)然后通过position得到相应的ViewHolder来刷新UI.
+11. Handler静态实现可以避免内存泄漏
+```java
+static class HornHandler extends Handler {
+BroadCastViewHolder viewHolder;
+public HornHandler(BroadCastViewHolder holder) {
+viewHolder = holder;
+}
+
+@Override
+public void handleMessage(Message msg) {
+switch (msg.what) {
+case MESSAGE_SHOW:
+viewHolder.setRecyclerAnim(msg.arg1, msg.arg2);
+break;
+default:break;
+}
+super.handleMessage(msg);
+}
+}
+```
