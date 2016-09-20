@@ -28,6 +28,7 @@
 [Android 面试知识](https://github.com/MerlinYu/blog/blob/master/android/interview.md)<br>
 [Am 命令](https://github.com/MerlinYu/blog/blob/master/android/am.md)<br>
 [Android 多进程](https://github.com/MerlinYu/blog/tree/master/android)<br>
+[Android 图片缩略图](https://github.com/MerlinYu/blog/blob/master/android/thumbnails.md)<br>
 [Fragment](https://github.com/MerlinYu/blog/blob/master/android/fragment.md)<br>
 #gradle
 
