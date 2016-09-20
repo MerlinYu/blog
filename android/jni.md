@@ -46,7 +46,7 @@ JNIEXPORT void JNICALL Java_com_structure_test_MyJniClass_DisplayHello
 }
 ```
 2. 新建jni文件夹，并将.c和.h文件转移到该文件夹下。<br>
-![](https://github.com/MerlinYu/blog/tree/master/blog_file/android/flow_control/jni_1.png)
+![](https://github.com/MerlinYu/blog/raw/master/blog_file/android/flow_control/jni_1.png)
 3. 配置gradle
 在app/build.gradle中的defaultConfig添加代码：
 ndk {
@@ -57,6 +57,6 @@ ndk {
 
 4. 进行编译
 编译成功之后的.so库文件可以在app/build/intermediates/ndk 下查看。<br>
-![](https://github.com/MerlinYu/blog/tree/master/blog_file/android/flow_control/jni_2.png)<br>
+![](https://github.com/MerlinYu/blog/raw/master/blog_file/android/flow_control/jni_2.png)<br>
 5. 运行的结果如下：<br>
-![](https://github.com/MerlinYu/blog/tree/master/blog_file/android/flow_control/jni_3.png)<br>
+![](https://github.com/MerlinYu/blog/raw/master/blog_file/android/flow_control/jni_3.png)<br>
