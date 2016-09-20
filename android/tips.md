@@ -11,3 +11,4 @@ if(bitmapObject.isRecycled()==false) //如果没有回收<br>
 7. 查看app运行最大内存：max = (int) (Runtime.getRuntime().maxMemory() / 1024)
 8. 图像占用内存算法: memory = width * height * config;  eg: config = ARGB_888(4)
 9. LinerLayout devider的运用。http://gold.xitu.io/entry/55272f6ae4b0da2c5deb7f26
+10. ListView逐行刷新是通过ViewHolder实现的在ListView的Adapter getView当中new viewholder,view.setTag(viewholder)然后通过position得到相应的ViewHolder来刷新UI.
