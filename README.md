@@ -4,7 +4,14 @@
  在博客之中有一些示例图片是从网络上转载的，有的标明出处，如有遗漏请告诉我。
  在这一系列博客当中涉及到的java知识，android知识，插件，第三方库和框架我都已经在另一个工程做过实践-[structure](https://github.com/MerlinYu/structure),有兴趣的话可以去clone一下。
 #java
+[java 编译过程]()<br>
+[java 内存机制](https://github.com/MerlinYu/blog/blob/master/java/memory.md)<br>
+//[java Collection框架综述]()<br>
 [java面试知识](https://github.com/MerlinYu/blog/blob/master/java/java_interview.md)<br>
+[java 线程](https://github.com/MerlinYu/blog/blob/master/java/java_thread.md)<br>
+[java HashMap源码理解](https://github.com/MerlinYu/blog/blob/master/java/hashmap.md)<br>
+[java ArrayList源码理解](https://github.com/MerlinYu/blog/blob/master/java/java_arraylist.md)<br>
+[]()<br>
 []()<br>
 
 #android
