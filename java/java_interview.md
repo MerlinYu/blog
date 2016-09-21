@@ -45,3 +45,5 @@ java中集合类里面基本的接口有：<br>
 HashMap存储本质是：链表和数组结合使用。<br>
 HashMap以 key -value的形式存储,它使用hashCode()和equals()方法来向集合中添加和检索元素。HashMap的初始capacity为16，负载因子（load factor）为0.8。其插入数度快，而遍历慢。<br>
 ArrayList存储单纯采用数组。插入速度慢，而遍历快。
+### 10. java 线程
+https://github.com/MerlinYu/blog/blob/master/java/java_thread.md
