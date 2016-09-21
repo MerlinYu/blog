@@ -47,3 +47,64 @@ HashMap以 key -value的形式存储,它使用hashCode()和equals()方法来向�
 ArrayList存储单纯采用数组。插入速度慢，而遍历快。
 ### 10. java 线程
 https://github.com/MerlinYu/blog/blob/master/java/java_thread.md
+### 11. 泛型
+泛型是Java SE 1.5的新特性，泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口、泛型方法。 Java语言引入泛型的好处是安全简单。<br>
+泛型的好处是在编译的时候检查类型安全，并且所有的强制转换都是自动和隐式的，以提高代码的重用率。
+```java
+List<String> array = new ArrayList<String>();
+```
+### 12. 继承
+- 子类在初始化时会先初始化基类
+- 基类中定义的属性（变量）会先执行然后再调用构造函数。
+- 如果派生类有参数构造，在构造时并没有调用super（）,会先调用基类的无参构造器。
+代码测试：<br>
+```java
+public class Game {
+  String name = Game.class.getName();
+  public Game() {
+    System.out.println(name);
+  }
+}
+public class BasketballGame extends Game {
+  String name = BasketballGame.class.getName();
+  public BasketballGame() {
+    System.out.println(name);
+  }
+
+  public BasketballGame(String country) {
+    System.out.println(country);
+  }
+}
+BasketballGame game = new BasketballGame("china");
+//打印结果如下：
+com.processor.test.Game
+china
+```
+### 13. java的反射机制
+JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。<br>
+一个好的博客地址： http://www.cnblogs.com/rollenholt/archive/2011/09/02/2163758.html<br>
+```java
+Class<?> demo = null;
+Game baseGame = null;
+try {
+  demo = Class.forName("com.processor.test.BasketballGame");
+  System.out.println("===========本类属性========");
+  Field[] field = demo.getDeclaredFields();
+  // field = demo.getFields(); 父类属性
+  int length = field.length;
+  for(int i = 0; i < length; i++) {
+    // 权限修饰符
+    int mo = field[i].getModifiers();
+    String priv = java.lang.reflect.Modifier.toString(mo);
+    // 属性类型
+    Class <?> type = field[i].getType();
+    System.out.println(priv + " " + type.getName() + " " + field[i].getName());
+  }
+
+  baseGame = (Game) demo.newInstance();
+  System.out.println(baseGame.getGameName());
+} catch (Exception e) {
+  e.printStackTrace();
+}
+```
+
