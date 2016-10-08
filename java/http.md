@@ -3,7 +3,7 @@
 转载文章：http://blog.csdn.net/hguisu/article/details/8680808<br>
 转载文章：http://www.cnblogs.com/phphuaibei/archive/2011/09/27/2192817.html<br>
 ##简介
-互联网的r关键技术就是TCP/IP协议，两台s计sm算机r之间的通信是通过TCP/IP协议在因特网上进行的。实际上是两个协议：
+互联网的关键技术就是TCP/IP协议，两台计算机之间的通信是通过TCP/IP协议在因特网上进行的。实际上是两个协议：
 * TCP：Transmission Control Protocol 传输控制协议<br>
 * IP: Internet Protocol  网际协议<br>
 
