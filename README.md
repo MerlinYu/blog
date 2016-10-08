@@ -13,7 +13,7 @@
 [java HashMap源码理解](https://github.com/MerlinYu/blog/blob/master/java/hashmap.md)<br>
 [java ArrayList源码理解](https://github.com/MerlinYu/blog/blob/master/java/java_arraylist.md)<br>
 [java http](https://github.com/MerlinYu/blog/blob/master/java/http.md)<br>
-[java 知识点](https://github.com/MerlinYu/blog/edit/master/java/tips.md)<br>
+[java 知识点](https://github.com/MerlinYu/blog/blob/master/java/tips.md)<br>
 
 #android
 [Android 签名](https://github.com/MerlinYu/blog/blob/master/android/sign.md)<br>
@@ -41,7 +41,8 @@
 [Android 图片缩略图](https://github.com/MerlinYu/blog/blob/master/android/thumbnails.md)<br>
 [Fragment](https://github.com/MerlinYu/blog/blob/master/android/fragment.md)<br>
 #gradle
-[]()<br>
+[gradle 学习](https://github.com/MerlinYu/blog/blob/master/gradle/grama.md)<br>
+[Android gradle](https://github.com/MerlinYu/blog/blob/master/gradle/android_gradle.md)<br>
 
 #ReactNative
 [RN 开始篇](https://github.com/MerlinYu/blog/edit/master/react_native/start.md)<br>
