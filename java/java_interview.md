@@ -107,4 +107,6 @@ try {
   e.printStackTrace();
 }
 ```
-
+### 14. ArrayList和Vector的区别
+同步性 :Vector是线程安全的，也就是说是同步的，而 ArrayList是线程序不安全的，不是同步的<br>
+数据增长 :当需要增长时,Vector默认增长为原来一培，而 ArrayList却是原来的一半<br>
