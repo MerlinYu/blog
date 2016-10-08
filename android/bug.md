@@ -61,3 +61,8 @@ E/AndroidRuntime( 7091): at com.android.internal.os.ZygoteInit$MethodAndArgsCall
 E/AndroidRuntime( 7091): at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1195)
 D/MomosoApiService( 7091): <--- HTTP 200 https://api.momoso.com/ios/v1/page_view/update_flash_feeds?topic_id=57a82b168106e5600247f5c9 (2818ms)
 ```
+####8. AsyncTask下载图片显示错误
+AsyncTask启动任务时，当任务结束时，需要将任务的结果返回给进程，最好建立一种对应关系。<br>
+下面是我在开发过程中挖的一个坑：<br>
+情景：在界面上有5个缩略图，点击就可以显示出大图。<br>
+点击缩略图启动一个asynctask，从网络上下载图片，下载完成后将下载结果保存，并显示在界面上。在这5张缩略图上来回切换，结果显示的大图错乱。原因是切换图片时g启动下载大图的AysncTask但是任务并没有执行完，再接着切换会把上一次下载的图片会与当前的缩略图关联，造成显示错误。
