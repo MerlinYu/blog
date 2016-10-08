@@ -6,13 +6,14 @@
 #java
 [java 编译过程](https://github.com/MerlinYu/blog/blob/master/java/compile.md)<br>
 [java 内存机制](https://github.com/MerlinYu/blog/blob/master/java/memory.md)<br>
-//[java Collection框架综述]()<br>
+[java 正则表达式](https://github.com/MerlinYu/blog/blob/master/java/regular.md)<br>
+[java 性能优化](https://github.com/MerlinYu/blog/blob/master/java/capability.md)<br>
 [java面试知识](https://github.com/MerlinYu/blog/blob/master/java/java_interview.md)<br>
 [java 线程](https://github.com/MerlinYu/blog/blob/master/java/java_thread.md)<br>
 [java HashMap源码理解](https://github.com/MerlinYu/blog/blob/master/java/hashmap.md)<br>
 [java ArrayList源码理解](https://github.com/MerlinYu/blog/blob/master/java/java_arraylist.md)<br>
-[]()<br>
-[]()<br>
+[java http](https://github.com/MerlinYu/blog/blob/master/java/http.md)<br>
+[java 知识点](https://github.com/MerlinYu/blog/edit/master/java/tips.md)<br>
 
 #android
 [Android 签名](https://github.com/MerlinYu/blog/blob/master/android/sign.md)<br>
