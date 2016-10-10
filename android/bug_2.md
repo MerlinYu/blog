@@ -11,7 +11,7 @@
 5. EditText 内存泄漏
 原因：EditText光标闪烁导到内存泄漏。https://github.com/square/leakcanary/issues/297
 leaks截图：
-![](https://github.com/MerlinYu/blog/raw/master/blog_file/adnroid/edit_leaks.jpg)
+![](https://github.com/MerlinYu/blog/raw/master/blog_file/adnroid/edit_leaks.jpg)<br>
 android.Widget.Editor中有一段代码是这样的：
 ```java
     private class Blink extends Handler implements Runnable {
@@ -45,4 +45,5 @@ android.Widget.Editor中有一段代码是这样的：
 
 ```
 可以看到Runnable闪烁时会调用：mTextView.invalidateCursorPath();与截图中的g提示一致。
+解决办法：EditText.setCusrsorVisible(false).
 
