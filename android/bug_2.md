@@ -8,4 +8,42 @@
 原因：系统Rom问题(ClipboardUImanager) http://blog.csdn.net/xingchenxiao/article/details/48549215
 4. 360手机内存泄漏
 原因：系统Rom问题（LargeBackground）
+5. EditText 内存泄漏
+原因：EditText光标闪烁导到内存泄漏。https://github.com/square/leakcanary/issues/297》<br>
+leaks截图：
+![](https://github.com/MerlinYu/blog/raw/master/blog_file/adnroid/edit_leaks.jpg)<br>
+android.Widget.Editor中有一段代码是这样的：
+```java
+    private class Blink extends Handler implements Runnable {
+        private boolean mCancelled;
+        public void run() {
+            if (mCancelled) {
+                return;
+            }
+            removeCallbacks(Blink.this);
+
+            if (shouldBlink()) {
+                if (mTextView.getLayout() != null) {
+                    mTextView.invalidateCursorPath();
+                }
+
+                postAtTime(this, SystemClock.uptimeMillis() + BLINK);
+            }
+        }
+
+        void cancel() {
+            if (!mCancelled) {
+                removeCallbacks(Blink.this);
+                mCancelled = true;
+            }
+        }
+
+        void uncancel() {
+            mCancelled = false;
+        }
+    }
+
+```
+可以看到Runnable闪烁时会调用：mTextView.invalidateCursorPath();与截图中的g提示一致。
+解决办法：EditText.setCusrsorVisible(false).
 
