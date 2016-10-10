@@ -11,7 +11,7 @@
 5. EditText 内存泄漏
 原因：EditText光标闪烁导到内存泄漏。https://github.com/square/leakcanary/issues/297》<br>
 leaks截图：
-![](https://github.com/MerlinYu/blog/raw/master/blog_file/adnroid/edit_leaks.jpg)<br>
+![](https://github.com/MerlinYu/blog/blob/master/blog_file/android/edit_leaks.jpg)<br>
 android.Widget.Editor中有一段代码是这样的：
 ```java
     private class Blink extends Handler implements Runnable {
