@@ -201,7 +201,7 @@ public Subscription schedule(Action0 action, long delayTime, TimeUnit unit) {
     return scheduledAction;
 }
 ```
-这就是最终线程运行的代码。
+这就是最终线程运行的代码。说的简单一些就是在Android.mainThread 返回一个由主线程的Looper创建的handler，然后在schedule时使用这个handler执行动作。
 其他的线程类型Scheduler.IO等等就不作分析了。
 
 ## 操作符
