@@ -1,4 +1,4 @@
-#PriorityQueue源码
+## PriorityQueue源码
 PriorityQueue 是根据优先级先进先出的列。
 ```java
   public void priorityQueue() {
