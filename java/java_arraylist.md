@@ -1,5 +1,6 @@
-#java ArrayList源码分析
-##构造方法
+# java ArrayList
+## 源码分析
+#### 构造方法
 ```java
 public ArrayList{
  array = EmptyArray.OBJECT;
@@ -48,7 +49,7 @@ public ArrayList(Collection<? extends E> collection) {
 可想而知如果要添加到ArrayList的数据多的话会进行频繁的扩容操作，影响性能。<br>
 而ArrayList(capacity)在一开始时分配了array的容量，会减少重新分配内存的操作。<br>
 两种构造函数进行比较，如果ArrayList要存储的数据少则使用ArrayList(),如果可以预估到ArrayList要存储大量的数据，使用ArrayList(capacity)
-###扩容
+#### 扩容
 ```java
 public void ensureCapacity(int minimumCapacity) {
     Object[] a = array;
@@ -60,3 +61,9 @@ public void ensureCapacity(int minimumCapacity) {
     }
 }
 ```
+### 与List的比较
+1. ArrayList是实现了基于动态数组的数据结构，LinkedList基于链表的数据结构。 <br>
+2. 对于随机访问get和set，ArrayList觉得优于LinkedList，因为LinkedList要移动指针。 <br>
+3. 对于新增和删除操作add和remove，LinedList比较占优势，因为ArrayList要移动数据。 <br>
+4. 我们可以使用Collections.synchronized去保证Arraylist的线程安全。 List list=Collections.synchronizedList(new ArrayList())；<br>
+5. CopyOnWriteArrayList是线程安全的List
