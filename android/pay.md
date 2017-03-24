@@ -1,9 +1,9 @@
-##来聊一聊如何搭建一个支付框架<br>
-在搭建支付框架时首先要考虑：可能拥有多种支付方式，不同的支付方式支付参数不一样，全局只允许有一个支付实例，支付结果如何返回？<br>
+## 来聊一聊如何搭建一个支付框架<br>
+在搭建支付框架时首先要考虑：可能拥有多种支付方式，不同的支付方式支付参数不一样，全局只允许有一个支付实例，支付结果该如何返回？<br>
 基于以上的考虑我将采用单例模式（全局只有一个支付类）、工厂模式（实现多种支付方式）和观察者模（支付结果）式来实现整个支付框架。<br>
 
-#####支付类 
-######SupportPayment 支付名称类
+##### 支付类 
+###### SupportPayment 支付名称类
 
     public class SupportPayment implements Parcelable{
      /**支付唯一标识*/
@@ -18,7 +18,7 @@
     }
   
 
-######PaymentAction 支付接口
+###### PaymentAction 支付接口
 	public interface PaymentAction {
 	  void pay(String orderID, Map<String, String> parameters);
 	}
@@ -86,7 +86,7 @@ WeChatPaymentAction<br>
 
 在这里我们并不关心具体是怎么支付的只是说明如何找找寻一个支付的框架。<br>
 
-######PaymentManager 支付Manager 
+###### PaymentManager 支付Manager 
 	public class PaymentManager {
 
 	  private static volatile PaymentManager instance;
@@ -110,7 +110,7 @@ WeChatPaymentAction<br>
 	
 在上面的代码中用单例双重锁的形式实现了PaymentManager的单例，在app内只有一个支付的Manager.<br>
 
-######PaymentResultCallback 支付结果
+###### PaymentResultCallback 支付结果
 
 	public interface PaymentResultCallback {
     void onPaymentSuccess(SupportPayment actionType, String orderId,
