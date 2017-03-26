@@ -2,7 +2,7 @@
 
 最近在做一个开机动画，因为动画太长，所以在实现的过程中从简单到复杂的实现有几种方案供大家参考。<br>
 
-###AnimationDrawable 
+### AnimationDrawable 
 
 定义Drawable list 资源：
 
@@ -115,6 +115,63 @@ Glide 在加载 Gif图片时需要设置缓存的来源（diskCacheStrategy）�
 	    GifImageView gifImageView = new GifImageView(this);
 		 GifDrawable gifDrawable = new GifDrawable(getResources(), R.mipmap.launch);
 		 gifImageView.setImageDrawable(gifDrawable);
-		     
+android-gif-drawable原理是利用线程池去取图片，handler刷新，其优势在于底层使用c去解码。<br>
+```java
+// git drawable draw drawable
+@Override
+	public void draw(@NonNull Canvas canvas) {
+		final boolean clearColorFilter;
+		if (mTintFilter != null && mPaint.getColorFilter() == null) {
+			mPaint.setColorFilter(mTintFilter);
+			clearColorFilter = true;
+		} else {
+			clearColorFilter = false;
+		}
+		if (mTransform == null) {
+			canvas.drawBitmap(mBuffer, mSrcRect, mDstRect, mPaint);
+		} else {
+			mTransform.onDraw(canvas, mPaint, mBuffer);
+		}
+		if (clearColorFilter) {
+			mPaint.setColorFilter(null);
+		}
 
+		if (mIsRenderingTriggeredOnDraw && mIsRunning && mNextFrameRenderTime != Long.MIN_VALUE) {
+			final long renderDelay = Math.max(0, mNextFrameRenderTime - SystemClock.uptimeMillis());
+			mNextFrameRenderTime = Long.MIN_VALUE;
+			mExecutor.remove(mRenderTask);
+			mRenderTaskSchedule = mExecutor.schedule(mRenderTask, renderDelay, TimeUnit.MILLISECONDS);
+		}
+	}
+```
+RenderTask去取图片通过 Handler发送消息
+```java
+class RenderTask extends SafeRunnable {
 
+	RenderTask(GifDrawable gifDrawable) {
+		super(gifDrawable);
+	}
+
+	@Override
+	public void doWork() {
+		final long invalidationDelay = mGifDrawable.mNativeInfoHandle.renderFrame(mGifDrawable.mBuffer);
+		if (invalidationDelay >= 0) {
+			mGifDrawable.mNextFrameRenderTime = SystemClock.uptimeMillis() + invalidationDelay;
+			if (mGifDrawable.isVisible() && mGifDrawable.mIsRunning && !mGifDrawable.mIsRenderingTriggeredOnDraw) {
+				mGifDrawable.mExecutor.remove(this);
+				mGifDrawable.mRenderTaskSchedule = mGifDrawable.mExecutor.schedule(this, invalidationDelay, TimeUnit.MILLISECONDS);
+			}
+			if (!mGifDrawable.mListeners.isEmpty() && mGifDrawable.getCurrentFrameIndex() == mGifDrawable.mNativeInfoHandle.getNumberOfFrames() - 1) {
+				mGifDrawable.mInvalidationHandler.sendEmptyMessageAtTime(mGifDrawable.getCurrentLoop(), mGifDrawable.mNextFrameRenderTime);
+			}
+		} else {
+			mGifDrawable.mNextFrameRenderTime = Long.MIN_VALUE;
+			mGifDrawable.mIsRunning = false;
+		}
+		if (mGifDrawable.isVisible() && !mGifDrawable.mInvalidationHandler.hasMessages(MSG_TYPE_INVALIDATION)) {
+			mGifDrawable.mInvalidationHandler.sendEmptyMessageAtTime(MSG_TYPE_INVALIDATION, 0);
+		}
+	}
+}
+```
+其中通过private static native long renderFrame(long gifFileInPtr, Bitmap frameBuffer);方法去解析图片。
