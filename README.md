@@ -6,6 +6,7 @@
  
  [Android实现支付框架](https://github.com/MerlinYu/blog/blob/master/android/pay.md)<br>
  [AndroidGif动画解决方案](https://github.com/MerlinYu/blog/blob/master/android/android%20gif%E5%8A%A8%E7%94%BB%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md)<br>
+ [Android接入国际支付adyen的填坑之路](https://github.com/MerlinYu/blog/blob/master/android/Android 接入adyen 支付.md)<br>
  
 # java
 [java 编译过程](https://github.com/MerlinYu/blog/blob/master/java/compile.md)<br>
