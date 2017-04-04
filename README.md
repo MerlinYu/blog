@@ -6,7 +6,8 @@
  
  [Android实现支付框架](https://github.com/MerlinYu/blog/blob/master/android/pay.md)<br>
  [AndroidGif动画解决方案](https://github.com/MerlinYu/blog/blob/master/android/android%20gif%E5%8A%A8%E7%94%BB%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md)<br>
- [Android接入国际支付adyen的填坑之路](https://github.com/MerlinYu/blog/blob/master/android/Android%20%E6%8E%A5%E5%85%A5adyen%20%E6%94%AF%E4%BB%98.md)<br>
+ [Android接入adyen的填坑之路](https://github.com/MerlinYu/blog/blob/master/android/Android%20%E6%8E%A5%E5%85%A5adyen%20%E6%94%AF%E4%BB%98.md)<br>
+ [Retrofit2.0源码分析](https://github.com/MerlinYu/blog/blob/master/android/retrofit.md)<br>
  
 # java
 [java 编译过程](https://github.com/MerlinYu/blog/blob/master/java/compile.md)<br>
