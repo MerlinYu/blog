@@ -8,7 +8,8 @@
  [AndroidGif动画解决方案](https://github.com/MerlinYu/blog/blob/master/android/android%20gif%E5%8A%A8%E7%94%BB%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md)<br>
  [Android接入adyen的填坑之路](https://github.com/MerlinYu/blog/blob/master/android/Android%20%E6%8E%A5%E5%85%A5adyen%20%E6%94%AF%E4%BB%98.md)<br>
  [Retrofit2.0源码分析](https://github.com/MerlinYu/blog/blob/master/android/retrofit.md)<br>
- 
+ [DiskLurCache原理](https://github.com/MerlinYu/blog/blob/master/android/DiskLurCache%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3.md)<br>
+ [java注解](https://github.com/MerlinYu/blog/blob/master/android/java%E6%B3%A8%E8%A7%A3.md)<br>
  
 # java
 [java 编译过程](https://github.com/MerlinYu/blog/blob/master/java/compile.md)<br>
