@@ -121,7 +121,7 @@ java提供了一个类可以用来处理java注解：AbstractProcessor，我们�
     }
 
 这段代码的含义是拿到PreferenceItem对应的PreferenceField，将两都放在一个map当中，然后再对Map当中的元素做出处理，具体的可以参考源代码。
-编译过后生成的代码将在：
+编译过后生成的代码将在：<br>
 ![](https://github.com/MerlinYu/blog/blob/master/blog_file/android/android_annotations.png)
 
 
