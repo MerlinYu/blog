@@ -5,13 +5,11 @@
 Android其本质就是在标准的Linux系统上增加了Java虚拟机Dalvik，并在Dalvik虚拟机上搭建了一个JAVA的application framework，所有的应用程序都是基于JAVA的application framework之上。
 Android主要应用于ARM平台，但不仅限于ARM，通过编译控制，在X86、MAC等体系结构的机器上同样可以运行。<br>
 
-https://github.com/MerlinYu/blog/tree/master/blog_file/android/android_structure.png
-
+![](https://github.com/MerlinYu/blog/tree/master/blog_file/android/android_structure.png)
 
 
 #### 应用程序层
 我们的Momoso,CloudMall以及绝大多数据应用都在这一层开发。<br>
-
 
 
 #### 应用程序框架层也称(Framework层)
@@ -49,21 +47,21 @@ Android 的核心系统服务依赖于 Linux 2.6 内核 ，如安全性，内存
 
 ### Android程序如何工作
 
-https://github.com/MerlinYu/blog/tree/master/blog_file/android/android_start.png
+![](https://github.com/MerlinYu/blog/tree/master/blog_file/android/android_start.png)
 
 
 
 
 ##### 应用程序结构
 
-https://github.com/MerlinYu/blog/tree/master/blog_file/android/activity.png
+![](https://github.com/MerlinYu/blog/tree/master/blog_file/android/activity.png)
 
 android的应用程序其实就是一堆activity组织在一起。当我们点击应用图标时，首先它会启动一个Application，然后再通过它来启动相应的Activity.
 一般来说一个界面就是一个Activty。
 
 android基础有四大级组件：activty,service,broadcast,contentprocider。<br>
 
-https://github.com/MerlinYu/blog/tree/master/blog_file/android/activity_base_4.png
+![](https://github.com/MerlinYu/blog/tree/master/blog_file/android/activity_base_4.png)
 
 
 它们的作用各不一样，activyt实现界面逻辑，service后后服务，broadcast实现对系统变化的监听例如android手机时间会发生变化时，会发出一个broadcast然后注册了个广播就可以做出反应，android系统状态的变化都是通过广播通知的，ContentProcider实现不同的应用之间的通信。
@@ -72,11 +70,6 @@ https://github.com/MerlinYu/blog/tree/master/blog_file/android/activity_base_4.p
 
 view的绘制流程可以分为三步：测量view控件的大小，布局放置view，最后才是绘制view。<br>
 
-https://github.com/MerlinYu/blog/tree/master/blog_file/android/view_draw.png
+![](https://github.com/MerlinYu/blog/tree/master/blog_file/android/view_draw.png)
 
 
-
-
-
-
- 
