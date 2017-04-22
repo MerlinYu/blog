@@ -1,6 +1,6 @@
 ## Android的系统架构以及工作原理
 
-###系统架构
+### 系统架构
 
 Android其本质就是在标准的Linux系统上增加了Java虚拟机Dalvik，并在Dalvik虚拟机上搭建了一个JAVA的application framework，所有的应用程序都是基于JAVA的application framework之上。
 Android主要应用于ARM平台，但不仅限于ARM，通过编译控制，在X86、MAC等体系结构的机器上同样可以运行。<br>
