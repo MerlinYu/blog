@@ -1,20 +1,35 @@
 ## Android的系统架构以及工作原理
 
-### 系统架构
+
+
+
+### Android概况
+
+android版本分布：
+![](http://www.ihei5.com/uploads/allimg/2017/03/08/1-1F30Q15S3.jpg)
+
+最新一份统计显示谷歌的安卓系统占比37.93%，超过了微软的Windows系统的37.91%。成为全球第一大操作系统。
+
+
+### Android系统结构
+>>>>>>> update
 
 Android其本质就是在标准的Linux系统上增加了Java虚拟机Dalvik，并在Dalvik虚拟机上搭建了一个JAVA的application framework，所有的应用程序都是基于JAVA的application framework之上。
 Android主要应用于ARM平台，但不仅限于ARM，通过编译控制，在X86、MAC等体系结构的机器上同样可以运行。<br>
+android在系统结构上可以分为四层：分别是应用程序层，应用框架层，系统运行库层，以及Linux内核层。
+
 
 ![](https://github.com/MerlinYu/blog/blob/master/blog_file/android/android_structure.png)
 
 
 #### 应用程序层
-我们的Momoso,CloudMall以及绝大多数据应用都在这一层开发。<br>
+一般应用都在这一层开发，我们的Momoso,CloudMall就是在这一层开发。<br>
 
 
 #### 应用程序框架层也称(Framework层)
 
-一般的手机厂商都在这一层做开发，实现定制ROM。
+一般的手机厂商会在这一层做开发，实现定制的ROM。<br>
+
 隐藏在每个应用后面的是一系列的服务和系统：
 
 1. view视图，在Android中应用中我们所看到的按钮，文本框，列表，进度条都是在这一层定义的。
@@ -45,10 +60,9 @@ Android 的核心系统服务依赖于 Linux 2.6 内核 ，如安全性，内存
 
 
 
-### Android程序如何工作
+### Android程序加载流程
 
 ![](https://github.com/MerlinYu/blog/blob/master/blog_file/android/android_start.png)
-
 
 
 
@@ -67,6 +81,8 @@ android基础有四大级组件：activty,service,broadcast,contentprocider。<b
 它们的作用各不一样，activyt实现界面逻辑，service后后服务，broadcast实现对系统变化的监听例如android手机时间会发生变化时，会发出一个broadcast然后注册了个广播就可以做出反应，android系统状态的变化都是通过广播通知的，ContentProcider实现不同的应用之间的通信。
 
 ##### android view绘制的流程
+ 
+我们所看到的Android程序的界面，所有的界面都是基于view实现的，包括TextView,ImageView,ViewGroup等等都是View的子类。
 
 view的绘制流程可以分为三步：测量view控件的大小，布局放置view，最后才是绘制view。<br>
 
